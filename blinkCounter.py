@@ -1,10 +1,10 @@
 import install_requirements
 
 import cv2
-from faceMeshModule import FaceMeshDetector
+from faceMeshModule import faceMeshDetection
 
 cap = cv2.VideoCapture('Video.mp4')
-detector = FaceMeshDetector()
+detector = faceMeshDetection()
 
 
 idList = [22,23,24,26,110,157,158,159,160,161,130,243]

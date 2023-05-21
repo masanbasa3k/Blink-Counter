@@ -3,7 +3,7 @@ import mediapipe as mp
 import math
 import numpy as np
 
-class FaceMeshDetector:
+class faceMeshDetection:
     def __init__(self, staticMode=False, maxFaces=1, minDetectionCon=0.5, minTrackCon=0.5):
         self.staticMode = staticMode
         self.maxFaces = maxFaces
