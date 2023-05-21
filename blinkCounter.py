@@ -1,13 +1,10 @@
 import install_requirements
 
 import cv2
-import cvzone
-from cvzone.FaceMeshModule import FaceMeshDetector
-from cvzone.PlotModule import LivePlot
+from faceMeshModule import FaceMeshDetector
 
 cap = cv2.VideoCapture('Video.mp4')
-detector = FaceMeshDetector(maxFaces=1)
-plotY = LivePlot(640,360,[20,50])
+detector = FaceMeshDetector()
 
 
 idList = [22,23,24,26,110,157,158,159,160,161,130,243]
@@ -58,15 +55,8 @@ while run:
                 counterTime = 0
                 color = (255,0,255)
 
-        cvzone.putTextRect(img,f'Blink Count : {blinkCount}', (50,50), colorR=color)
-
-        imgPlot = plotY.update(ratioAvg,color)
         img = cv2.resize(img, (640, 360))
-        imgStack = cvzone.stackImages([img, imgPlot], 1, 1)
-
-    else:
-        img = cv2.resize(img, (640, 360))
-        imgStack = cvzone.stackImages([img, img], 1, 1)
+        print(f'Blink Count: {blinkCount}')
     
-    cv2.imshow('Image',imgStack)
+    cv2.imshow('Image',img)
     cv2.waitKey(25)
